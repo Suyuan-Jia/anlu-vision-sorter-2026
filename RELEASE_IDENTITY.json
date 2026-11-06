@@ -1,0 +1,11 @@
+{
+  "version": "unified_mode_osd_20261027",
+  "status": "FINAL_SOFTWARE_VERIFIED_PENDING_HARDWARE",
+  "device": "PH1P35MDG324-3",
+  "td_version": "6.2.168116",
+  "release_A_sha256": "53448c26eb190cb422ff128d490834b5d863fbd828bb8ec5eb9a3661977e456c",
+  "release_B_sha256": "60ec3203a7506f893cc37fa0441e7e8a5da55472f755be5bf2fe244ac28046fe",
+  "hardware_tested": false,
+  "registered_inputs": {"A": 77, "B": 63},
+  "public_candidate_scope": "team RTL and integration files only; restricted vendor dependencies omitted"
+}

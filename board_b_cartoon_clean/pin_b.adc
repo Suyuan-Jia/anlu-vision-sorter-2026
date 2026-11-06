@@ -1,0 +1,46 @@
+# Mapping corrected after physical loopback; CLK=J2-7/F14.
+# Never connect J2-11/29 power. J2-15/J14 reserved for camera control.
+set_pin_assignment	{ I_sys_clk }			{ LOCATION = C4; IOSTANDARD  = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ I_rst_n }				{ LOCATION = R10; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ O_screen_pwm } 		{ LOCATION = R11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLDOWN; }
+set_pin_assignment	{ O_tmds_ch0_p }		{ LOCATION = G16; IOSTANDARD = TMDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ O_tmds_ch1_p }		{ LOCATION = F17; IOSTANDARD = TMDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ O_tmds_ch2_p }		{ LOCATION = H14; IOSTANDARD = TMDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ O_tmds_clk_p }		{ LOCATION = C17; IOSTANDARD = TMDS33; PULLTYPE = NONE; }
+set_pin_assignment { I_link_clk } { LOCATION = F14; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-7
+set_pin_assignment { I_link_data[0] } { LOCATION = D15; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-2
+set_pin_assignment { I_link_data[1] } { LOCATION = E12; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-3
+set_pin_assignment { I_link_data[2] } { LOCATION = E16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-4
+set_pin_assignment { I_link_data[3] } { LOCATION = E17; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-5
+set_pin_assignment { I_link_data[4] } { LOCATION = F13; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-6
+set_pin_assignment { I_link_data[5] } { LOCATION = C18; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-1
+set_pin_assignment { I_link_data[6] } { LOCATION = F18; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-8
+set_pin_assignment { I_link_data[7] } { LOCATION = G17; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-9
+set_pin_assignment { I_link_data[8] } { LOCATION = H17; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-10
+set_pin_assignment { I_link_data[9] } { LOCATION = H18; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-13
+set_pin_assignment { I_link_data[10] } { LOCATION = J13; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-14
+set_pin_assignment { I_link_data[11] } { LOCATION = U4; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-37
+set_pin_assignment { I_link_data[12] } { LOCATION = J15; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-16
+set_pin_assignment { I_link_data[13] } { LOCATION = J16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-17
+set_pin_assignment { I_link_data[14] } { LOCATION = J18; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-18
+set_pin_assignment { I_link_data[15] } { LOCATION = D9; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-19
+set_pin_assignment { I_link_data[16] } { LOCATION = K17; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-20
+set_pin_assignment { I_link_data[17] } { LOCATION = K16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-21
+set_pin_assignment { I_link_data[18] } { LOCATION = K13; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-23
+set_pin_assignment { I_link_data[19] } { LOCATION = L15; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-24
+set_pin_assignment { I_link_data[20] } { LOCATION = L16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-25
+set_pin_assignment { I_link_data[21] } { LOCATION = P10; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-26
+set_pin_assignment { I_link_data[22] } { LOCATION = P9; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-27
+set_pin_assignment { I_link_data[23] } { LOCATION = P8; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-28
+set_pin_assignment { I_link_sop } { LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-31
+set_pin_assignment { I_link_valid } { LOCATION = R6; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-32
+set_pin_assignment { I_link_frame } { LOCATION = T5; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-33
+set_pin_assignment { I_link_run } { LOCATION = U7; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; } # J2-34
+
+set_pin_assignment { I_switch } { LOCATION = A4; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+# KEY1=D5，低电平按下；电平标准沿用原板run_led的D5约束。
+set_pin_assignment { I_key1_n } { LOCATION = D5; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+# HX1P35A SW2: up=1, down=0 (board manual, page 22).
+set_pin_assignment { I_motion_switch } { LOCATION = B4; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; }
