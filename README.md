@@ -1,33 +1,32 @@
-# 安路 FPGA 正式参赛源码公开候选
+# 基于安路 PH1P35 的实时数字图像处理系统
 
-本目录以正式软件发布 `unified_mode_osd_20261027` 为来源，来源快照为本机正式软件发布副本（`unified_mode_osd_20261027`）。
+这是安路 FPGA 参赛作品的正式公开源码。系统运行在 PH1P35MDG324-3 器件上，由 A、B 两块 FPGA 协同完成实时图像采集、处理、检测、跟踪和显示。
 
-依据：`evidence/peng_original_reports/FINAL_RELEASE.json` 标记该版本为 `FINAL_SOFTWARE_VERIFIED_PENDING_HARDWARE`，A/B bit 身份为 A `53448c26...`、B `60ec3203...`。该记录明确表示软件验证完成、硬件验收未完成，因此本候选不宣称最终 bit 已完成实板验收。
+## 作品功能
+
+- MIPI 摄像头采集、RAW 图像处理、ISP 和 AWB；
+- CNN 目标检测、ROI 处理、目标位置跟踪和 OSD 叠加；
+- 边缘、区域和运动显示；
+- A/B 板间视频传输、DDR 帧缓存和 HDMI 输出；
+- 安路 Logo、状态信息和实时画面显示。
 
 ## 工程入口
 
-- A：`board_a_rgb_source/board_a_rgb_source.al`
-- B：`board_b_cartoon_clean/board_b_cartoon_clean.al`
-- 器件：PH1P35MDG324-3；TD 版本记录为 6.2.168116。
+- A 板工程：`board_a_rgb_source/board_a_rgb_source.al`
+- B 板工程：`board_b_cartoon_clean/board_b_cartoon_clean.al`
+- 器件：PH1P35MDG324-3
+- TD：6.2.168116
 
-## 保留内容
+## 公开范围
 
-- A 板 CNN 检测、目标位置跟踪、ROI、后处理和 OSD RTL；
-- B 板区域/运动显示和视频链路 RTL；
-- A/B 顶层、ADC/SDC 约束、板间打包/接收模块；
-- 正式发布中实际引用的部分图像处理和 AE 控制模块；
-- CNN 检测、跟踪和后处理 RTL；模型权重、偏置和量化参数因缺少独立再分发授权证据未公开。
+仓库包含正式作品中可公开的 RTL、顶层工程文件、ADC/SDC 约束、板间链路模块和 AE 控制模块。CNN 权重、偏置和量化参数因缺少独立再分发授权证据未公开。
 
 ## 构建限制
 
-这是公开源码候选，不是可独立完整构建包。正式工程依赖的安路加密 MIPI/HDMI/DDR HDL、IP Generator 配置、模型权重和部分 MiLianKe/官方基础模块未复制到本目录。需要从安路官方 TD/IP Generator 环境及有授权的原工程取得这些依赖，再按 `.al` 中的相对路径恢复后构建。
+工程不能仅凭本仓库独立完成 TD 构建。正式工程依赖的安路加密 MIPI、HDMI 和 DDR HDL、IP Generator 配置、模型参数以及部分官方或第三方基础模块未包含在仓库中。构建时需要从安路官方 TD/IP Generator 环境和有授权的原工程获取这些依赖，并恢复到 `.al` 文件要求的相对路径。
 
-本候选没有包含 C10、P06、P08 实验候选、Runs、数据库、日志、缓存、bitstream、视频或调试材料。
+## 验证状态
 
-## 功能状态
+CNN 检测、目标跟踪、OSD、ISP、板间视频和 B 板运动/区域显示均已完成软件或离线构建验证。正式发布记录尚未完成最终实板验收，因此真实摄像头识别精度、自动跟随、机械方向和整板闭环仍需在硬件上确认。
 
-CNN 检测、`cnn_live_tracker.v` 跟踪、OSD、ISP、板间视频和 B 板运动/区域显示均存在于正式软件发布输入清单，并有离线软件/构建记录。该发布记录的 `hardware_tested` 为 false；真实摄像头识别精度、自动跟随、机械方向和实板闭环不能由本目录宣称通过。
-
-正式 A/B 清单去重后有 93 个工程输入；本候选保留其中 50 个可公开源码/配置引用，43 个因加密、生成或第三方授权不明而排除。完整排除范围见 `EXCLUDED_SCOPE.csv`。\n\n文件来源、分类和 SHA256 见 `SOURCE_SCOPE.md`、`THIRD_PARTY_DEPENDENCIES.md`、`SOURCE_MANIFEST.csv` 和 `SHA256SUMS.txt`。
-
-
+仓库不包含实验分支、Runs、数据库、日志、缓存、bitstream、视频或调试材料。文件来源、排除范围和 SHA256 清单见 `SOURCE_SCOPE.md`、`THIRD_PARTY_DEPENDENCIES.md`、`EXCLUDED_SCOPE.csv`、`SOURCE_MANIFEST.csv` 和 `SHA256SUMS.txt`。
